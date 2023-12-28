@@ -1,0 +1,47 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="TTTstyle.css">
+        <script src="TTTwork.js"></script>
+        <title>Tic Tac Toe Game</title>
+    </head>
+    <body>
+
+        <main class="background">
+            <section class = "title">
+                <h1>TIC TAC TOE</h1>
+                <p id="playerNames">Player 1 vs Player 2</p>
+                <section class="display announcer hide">
+                <!-- Scoreboard block-->
+                    <section class="scoreboard">
+                       <p id="playerXScore">PlayerX : 0</p>
+                       <p id="playerOScore">Player O: 0</p>
+                   </section>
+            </section>
+            <section class="display">
+                Player <span class="display-player playerX">X</span>'s turn
+            </section>
+            <section class="tile-container">
+                 <!--row1-->
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <!--row2-->
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <!--row3-->
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+            </section>
+            
+
+            </section>
+            <section class="game-controls">
+                <button id="reset">Restart</button>
+            </section>
+    </main>
+    </body>
+</html>
