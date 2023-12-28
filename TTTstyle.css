@@ -25,12 +25,11 @@
     margin-bottom: 1em;
 }
 
+
 .hide {
     display: none;
 }
-
-/* tiles block display */
-
+/*tiles display and area content */
 .tile-container {
     margin: 0 auto;
     display: grid;

@@ -4,6 +4,7 @@ window.addEventListener('DOMContentLoaded', () => {
     const resetButton = document.querySelector('#reset');
     const announcer = document.querySelector('.announcer');
 
+
     let board = ['', '', '', '', '', '', '', '', ''];
     let currentPlayer = 'X';
     let isGameActive = true;
@@ -73,7 +74,6 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 
 
-    // displayig winner 
     const announce = (type) => {
         switch(type){
             case PLAYERO_WON:
@@ -86,12 +86,17 @@ window.addEventListener('DOMContentLoaded', () => {
                 break;
             case TIE:
                 announcer.innerText = 'Tie';
-                break;
+            break;
         }
+        updateScoreboard();
+        announcer.classList.remove('hide');
 
         updateScoreboard();
         announcer.classList.remove('hide');
+        announcer.style.color = 'white';
+        announcer.style.textAlign = 'center';
     };
+    
     
 
 
@@ -117,9 +122,10 @@ window.addEventListener('DOMContentLoaded', () => {
     const changePlayer = () => {
         playerDisplay.classList.remove(`player${currentPlayer}`);
         currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
-        playerDisplay.innerText = currentPlayer;
+        playerDisplay.innerText = currentPlayer === 'X' ? player1Name : player2Name;
         playerDisplay.classList.add(`player${currentPlayer}`);
-    }
+    };
+    
 
     const userAction = (tile, index) => {
         if(isValidAction(tile) && isGameActive) {
@@ -134,9 +140,9 @@ window.addEventListener('DOMContentLoaded', () => {
     // scoreboard content 
     
     const resetBoard = () => {
-        player1Name = prompt("Enter Player 1 name:", "Player 1") || "Player 1";  // if no name entered default player 1 displayed ;
-        player2Name = prompt("Enter Player 2 name:", "Player 2") || "Player 2";  
-        playerXScore = 0;   // initializing players score for scoreboard ;
+        player1Name = prompt("Enter Player 1 name:", "Player 1") || "Player 1";
+        player2Name = prompt("Enter Player 2 name:", "Player 2") || "Player 2";
+        playerXScore = 0;
         playerOScore = 0;
         board = ['', '', '', '', '', '', '', '', ''];
         isGameActive = true;
@@ -155,7 +161,7 @@ window.addEventListener('DOMContentLoaded', () => {
         updateScoreboard();
     };
     
-    
+
     tiles.forEach( (tile, index) => {
         tile.addEventListener('click', () => userAction(tile, index));
     });
